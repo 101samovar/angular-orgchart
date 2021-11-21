@@ -1,0 +1,17 @@
+:host {
+    position: absolute;
+    left: 42px;
+    top: 42px;
+    right: 0;
+    height: 24px;
+    padding: 3px 6px;
+    opacity: 0.5;
+}
+
+.item {
+    cursor: pointer;
+}
+
+.item:hover {
+    text-decoration: underline;
+}

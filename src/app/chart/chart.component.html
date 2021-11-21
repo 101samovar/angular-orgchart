@@ -1,0 +1,64 @@
+<div #chart class="container">
+    <h1>{{root.name}}</h1>
+    <svg xmlns="http://www.w3.org/2000/svg"
+        [attr.width]="WIDTH"
+        [attr.height]="HEIGHT"
+        [attr.viewBox]="viewBox"
+        class="chart">
+        <g *ngFor="let e of chartElementList" (click)="onClick(e.item)">
+            <path *ngIf="e.connection" [attr.d]="e.connection" 
+            [style.stroke]="colors[e.category % colors.length]"
+            class="connection"/>
+            <rect class="item"
+                [class.selected]="e.item.id===selected.id"
+                [style.stroke]="colors[e.category % colors.length]"
+                [style.fill]="colors[e.category % colors.length]"
+                [style.fillOpacity]="1 / (e.item.level + 1)"
+                [attr.x]="e.x - ELEMENT_WIDTH/2"
+                [attr.y]="e.y - ELEMENT_HEIGHT/2"
+                [attr.width]="ELEMENT_WIDTH"
+                [attr.height]="ELEMENT_HEIGHT"
+                rx="6" ry="6"></rect>
+            <text [attr.x]="e.x" [attr.y]="e.y"
+                class="item-text">{{e.item.name}}</text>
+        </g>
+    </svg>
+    <div class="toolbox">
+        <button mat-icon-button (click)="onZoomIn()" aria-label="ZoomIn">
+            <mat-icon>zoom_in</mat-icon>
+        </button>
+        <button mat-icon-button (click)="onZoomOut()" aria-label="ZoomOut">
+            <mat-icon>zoom_out</mat-icon>
+        </button>
+        <button mat-icon-button (click)="onPan()" aria-label="Pan">
+            <mat-icon>pan_tool</mat-icon>
+        </button>
+    </div>
+</div>
+<div class="details">
+    <h2>Details #{{selected.id}}</h2>
+    <form>
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input type="text" name="name" matInput [(ngModel)]="selected.name"
+            (change)="onChange()">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea name="description" matInput [(ngModel)]="selected.description"
+            (change)="onChange()"></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Level</mat-label>
+            <input type="text" name="level" disabled matInput [(ngModel)]="selected.level">
+        </mat-form-field>
+    </form>
+</div>
+<div class="action">
+    <button mat-mini-fab (click)="onAdd()" color="accent" class="action-button"  aria-label="add">
+        <mat-icon>add</mat-icon>
+    </button>
+    <button mat-mini-fab (click)="onDelete()" color="accent" class="action-button"  aria-label="delete">
+        <mat-icon>delete</mat-icon>
+    </button>
+</div>

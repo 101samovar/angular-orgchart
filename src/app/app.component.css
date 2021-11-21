@@ -1,0 +1,11 @@
+.content {
+    position: absolute;
+    overflow: hidden;
+    left: 48px;
+    top: 66px;
+    right: 6px;
+    bottom: 6px;
+    padding: 6px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
+    border-radius: 3px;
+}

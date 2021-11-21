@@ -1,0 +1,46 @@
+.card-list-container {
+    width: 100%;
+}
+.card-container {
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 3px;
+    vertical-align: top;
+    width: 25%;
+}
+.card {
+    border-radius: 3px;
+    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+    height: 100px;
+    padding: 6px;
+    position: relative;
+    transition: all .3s cubic-bezier(0.23, 1, 0.320, 1);
+}
+.selected {
+    background: #0D47A1;
+    color: white;
+}
+.title {
+    font-size: 10px;
+    opacity: .2;
+    position: absolute;
+    right: 6px;
+    top: 3px;
+}
+.name {
+    font-size: 16px;
+}
+.description {
+    margin-top: 10px;
+    opacity: .5;
+}
+.action {
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+    width: 42px;
+}
+.action-button {
+    margin-bottom: 6px;
+}
+

@@ -1,0 +1,74 @@
+.container {
+    position: absolute;
+    left: 0;
+    right: 200px;
+    top: 0;
+    bottom: 0;
+    padding: 6px;
+    box-sizing: border-box;
+}
+.details {
+    position: absolute;
+    right: 0;
+    width: 200px;
+    top: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    padding: 6px;
+    box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+}
+.action {
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+    width: 42px;
+}
+.action-button {
+    margin-bottom: 6px;
+}
+.toolbox {
+    position: absolute;
+    right: 6px;
+    top: 20px;
+    width: 42px;
+    opacity: .1;
+    transition: all .3s cubic-bezier(0.23, 1, 0.320, 1);
+}
+.toolbox:hover {
+    opacity: 1;
+}
+.chart {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+.item {
+    fill: #9FA8DA;
+    stroke: #3F51B5;
+    stroke-width: 1px;
+}
+.item-text {
+    text-anchor: middle;
+    font-size: 10px;
+}
+.selected {
+    animation: pulse 2s infinite cubic-bezier(0.23, 1, 0.320, 1);
+    paint-order: stroke;
+}
+.connection {
+    stroke-width: 1px;
+    stroke: #3F51B5;
+    fill: none;
+}
+@keyframes pulse {
+    0% {
+        stroke-width: 1;
+        stroke-opacity: 1;
+    }
+    100% {
+        stroke-width: 40;
+        stroke-opacity: 0;
+    }
+}
